@@ -1,0 +1,9 @@
+# Dependency directories
+/node_modules
+
+# Lock files
+/package-lock.json
+/yarn.lock
+
+# JavaScript
+*.js
