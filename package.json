@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "tsc-go": "tsc && .\\src\\index.html"
+    "tsc-go": "tsc && .\\src\\index.html",
+    "set-up": "npm install --production && tsc-go --"
   },
   "keywords": [],
   "author": "",
