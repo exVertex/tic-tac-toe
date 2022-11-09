@@ -19,7 +19,7 @@ body {
     padding: 1em;
 }
 
-.main-container {
+.container {
     height: 100%;
     width: 100%;
     position: relative;
@@ -39,7 +39,7 @@ body {
     border-style: dashed;
 
     float: right;
-    width: 50%;
+    width: 25%;
     height: 100%;
     transition: width 300ms ease-in-out;
     display: flex;
@@ -48,8 +48,8 @@ body {
     flex-direction: column;
 }
 
-.active .content {
-    width: 25%;
+.in-active .content {
+    width: 50%;
 }
 
 .menu {
@@ -80,7 +80,5 @@ body {
     right: 10px;
     bottom: 10px;
     border-radius: 50%;
-
-
 
 }
