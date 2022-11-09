@@ -1,6 +1,6 @@
 :root {
-    --primary-colour: #9D69A3;
-    --secondary-colour: #80ED99;
+    --primary-colour: #b6f3e1;
+    --secondary-colour: #4AE3B5;
 }
 
 * {
@@ -24,7 +24,6 @@ body {
     width: 100%;
     position: relative;
     overflow: hidden;
-
 }
 
 .main {
@@ -34,7 +33,7 @@ body {
     position: relative;
 }
 
-.content {
+.menu {
     background-color: var(--primary-colour);
     border-style: dashed;
 
@@ -52,7 +51,7 @@ body {
     width: 50%;
 }
 
-.menu {
+.content {
     background-color: var(--secondary-colour);
     border-style: dashed;
     padding: 10px;
@@ -80,5 +79,4 @@ body {
     right: 10px;
     bottom: 10px;
     border-radius: 50%;
-
 }
