@@ -19,6 +19,19 @@ body {
     padding: 1em;
 }
 
+.light-font {
+    color: white;
+}
+
+.dark-font {
+    color: #631690;
+}
+
+.heading {
+    font-size: 350%;
+    padding: 10px;
+}
+
 .container {
     height: 100%;
     width: 100%;
