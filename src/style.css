@@ -1,3 +1,5 @@
+@import url("../node_modules/@fortawesome/fontawesome-free/css/all.css");
+
 :root {
     --primary-colour: #b6f3e1;
     --sec-color: #4AE3B5; /* #18d69d */
