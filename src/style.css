@@ -1,6 +1,8 @@
+@import url("../node_modules/@fortawesome/fontawesome-free/css/all.css");
+
 :root {
-    --primary-colour: #9D69A3;
-    --secondary-colour: #80ED99;
+    --primary-colour: #b6f3e1;
+    --sec-color: #4AE3B5; /* #18d69d */
 }
 
 * {
@@ -19,12 +21,24 @@ body {
     padding: 1em;
 }
 
-.main-container {
+.light-font {
+    color: white;
+}
+
+.dark-font {
+    color: #631690;
+}
+
+.heading {
+    font-size: 350%;
+    padding: 10px;
+}
+
+.container {
     height: 100%;
     width: 100%;
     position: relative;
     overflow: hidden;
-
 }
 
 .main {
@@ -34,32 +48,33 @@ body {
     position: relative;
 }
 
-.content {
+.menu {
     background-color: var(--primary-colour);
-    border-style: dashed;
+
+    width: 25%;
+    height: 100%;
 
     float: right;
-    width: 50%;
-    height: 100%;
-    transition: width 300ms ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    transition: width 300ms ease-in-out;
 }
 
-.active .content {
-    width: 25%;
+.in-active .menu {
+    width: 50%;
 }
 
-.menu {
-    background-color: var(--secondary-colour);
-    border-style: dashed;
+.content {
+    background-color: var(--sec-color);
+
     padding: 10px;
-
-    float: right;
     width: 25%;
     height: 100%;
+
+    float: right;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,18 +84,39 @@ body {
 .toggle-menu {
     background-color: #CFFFDC;
 
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-
     width: 50px;
     height: 50px;
     right: 10px;
     bottom: 10px;
     border-radius: 50%;
 
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
+.tictactoe-container {
+    /* background-color: #DDFEE4; */
+    width: 60%;
+    aspect-ratio: 1;
+    
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+}
 
+.box {
+    border: 4px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    align-items: center;
 }
