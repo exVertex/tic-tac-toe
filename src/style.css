@@ -39,6 +39,38 @@ body {
     padding: 10px;
 }
 
+.menu-item {
+  position: relative;
+  margin: 10px;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 1px;
+  background-color: var(--sec-color);
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.menu-item:hover {
+  opacity: 80%;
+}
+
+.menu-item:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.menu-item:active {
+  animation: jello 2s 1 ease forwards;
+}
+
 
 /* main page set-up */ 
 
@@ -90,7 +122,7 @@ body {
 }
 
 .toggle-menu {
-    background-color: #CFFFDC;
+    background-color: var(--prim-color);
 
     width: 50px;
     height: 50px;
