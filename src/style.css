@@ -2,8 +2,10 @@
 @import url("../node_modules/animate.css/animate.min.css");
 
 :root {
-    --primary-colour: #b6f3e1;
-    --sec-color: #4AE3B5; /* #18d69d */
+    --prim-color: #b6f3e1;
+    --sec-color: #18d69d; /* #4AE3B5 */
+    --compl-sec-color: #f0f7f5;
+    --compl-prim-color: #463c7c;
 }
 
 * {
@@ -21,18 +23,24 @@ body {
     padding: 1em;
 }
 
+
+/* text stylings */ 
+
 .light-font {
-    color: white;
+    color: var(--compl-sec-color);
 }
 
 .dark-font {
-    color: #631690;
+    color: var(--compl-prim-color);
 }
 
 .heading {
     font-size: 350%;
     padding: 10px;
 }
+
+
+/* main page set-up */ 
 
 .container {
     height: 100%;
@@ -49,7 +57,7 @@ body {
 }
 
 .menu {
-    background-color: var(--primary-colour);
+    background-color: var(--prim-color);
 
     width: 25%;
     height: 100%;
@@ -97,6 +105,9 @@ body {
     cursor: pointer;
 }
 
+
+/* tic-tac-toe settings */ 
+
 .tictactoe-container {
     /* background-color: #DDFEE4; */
     width: 60%;
@@ -108,7 +119,7 @@ body {
 }
 
 .box {
-    border: 5px solid white;
+    border: 5px solid var(--compl-sec-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,6 +131,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
+/* shapes */ 
+
 #cross {
     width: 60%;
     height: 60%;
@@ -132,7 +147,7 @@ body {
    content: "";
    position: absolute;
    z-index: -1;
-   background: white;
+   background: var(--compl-sec-color);
  }
  
  #cross:before {
@@ -152,11 +167,13 @@ body {
  #circle {
     width: 57%;
     height: 57%;
-    background: white;
+    background: var(--compl-sec-color);
     border-radius: 50%
   }
 
-  
+
+  /* tic-tac-toe animations */ 
+
   @keyframes three {
     0%  { opacity: 0;}
     69%  { opacity: 0; scale: 0.9; }
@@ -185,7 +202,6 @@ body {
     41% { scale: 1;}
   }
 
-  
   @keyframes seven {
     0%  { opacity: 0;}
     29% { opacity: 0; scale: 0.9; }
@@ -193,7 +209,6 @@ body {
     31% { scale: 1;}
   }
 
-  
   @keyframes eight {
     0%  { opacity: 0;}
     19% { opacity: 0; scale: 0.9; }
