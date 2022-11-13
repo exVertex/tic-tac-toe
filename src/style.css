@@ -330,7 +330,7 @@ body {
     11% { scale: 1;}
   }
 
-.frame {
+.gameFrame {
   background-color: var(--sec-color);
   height: 100%;
   aspect-ratio: 1;

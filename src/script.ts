@@ -22,15 +22,14 @@ function setUpPlayground(): HTMLDivElement[] {
     if(twoPlayerText) twoPlayerText.style.display = "none";
 
     // create new containers
-    let frame = document.createElement("div");
-    frame.classList.add("frame");
+    let gameFrame = document.createElement("div");
+    gameFrame.classList.add("gameFrame");
 
-    document.getElementById("play-menu")?.appendChild(frame);
+    document.getElementById("play-menu")?.appendChild(gameFrame);
 
     let gameContainer = document.createElement("div");
     gameContainer.classList.add("tictactoe-container");
-    gameContainer.style.width = "70%";
-    frame.appendChild(gameContainer); 
+    gameFrame.appendChild(gameContainer); 
 
     //create and add tictactoe boxes
     let boxOne = document.createElement("div");
@@ -61,9 +60,10 @@ function setUpPlayground(): HTMLDivElement[] {
     boxNine.classList.add("box-nine");
     gameContainer.appendChild(boxNine);
 
-    var gameBoxes:HTMLDivElement[]= [boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine ];
+    var gameBoxes:HTMLDivElement[]= [boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine];
 
     return gameBoxes;
+}
 
 function createEx(): HTMLDivElement {
     let krizic = document.createElement("div");
