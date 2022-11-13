@@ -68,12 +68,14 @@ function setUpPlayground(): HTMLDivElement[] {
 function createEx(): HTMLDivElement {
     let krizic = document.createElement("div");
     krizic.setAttribute("id", "cross");
+    krizic.style.animation = "appearAnimation 0.2s";
     return krizic;
 }
 
 function createOo(): HTMLDivElement {
     let kruzic = document.createElement("div");
     kruzic.setAttribute("id", "circle");
+    kruzic.style.animation = "appearAnimation 0.2s";
     return kruzic;
 }
 

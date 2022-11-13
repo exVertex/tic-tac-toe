@@ -330,6 +330,12 @@ body {
     11% { scale: 1;}
   }
 
+  @keyframes appearAnimation {
+    0% { opacity: 0; scale: 0.9; }
+    50% { opacity: 1; scale: 1.1; }
+    100% { scale: 1;}
+  }
+
 .gameFrame {
   background-color: var(--sec-color);
   height: 100%;
