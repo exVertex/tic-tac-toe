@@ -14,6 +14,15 @@ menuToggleSpan?.addEventListener("click", () => {
     toggleTheMenu();
 });
 
+function addMessageBoard(): HTMLDivElement {
+    const messaageBoard = document.createElement("div");
+    messaageBoard.classList.add("light-font");
+    messaageBoard.classList.add("heading");
+    messaageBoard.textContent = "Message Board";
+    messaageBoard.setAttribute("id", "message-board");
+    return messaageBoard;
+}
+
 function setUpPlayground(): HTMLDivElement[] {
     
     // hide the menu elements
@@ -26,6 +35,8 @@ function setUpPlayground(): HTMLDivElement[] {
     gameFrame.classList.add("gameFrame");
 
     document.getElementById("play-menu")?.appendChild(gameFrame);
+
+    gameFrame.appendChild(addMessageBoard());
 
     let gameContainer = document.createElement("div");
     gameContainer.classList.add("tictactoe-container");
@@ -79,23 +90,54 @@ function createOo(): HTMLDivElement {
     return kruzic;
 }
 
+function checkIfWon(gameState: Array<string>, el: string): void {
+    const messageBoard = document.getElementById("message-board");
+    const winMessage = el + " WON";
+    if(gameState[0]==el && gameState[3]==el && gameState[6]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+    if(gameState[0]==el && gameState[1]==el && gameState[2]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+    if(gameState[0]==el && gameState[4]==el && gameState[8]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+    if(gameState[1]==el && gameState[4]==el && gameState[7]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+    if(gameState[2]==el && gameState[5]==el && gameState[8]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+    if(gameState[2]==el && gameState[4]==el && gameState[6]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+    if(gameState[3]==el && gameState[4]==el && gameState[5]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+    if(gameState[6]==el && gameState[7]==el && gameState[8]==el) {
+        if(messageBoard) messageBoard.textContent = winMessage;
+    }
+}
+
 function openPlayerOne() : void {
     toggleTheMenu();
+    
     var gameBoxes = setUpPlayground();
 
     let gameState = ["", "", "", "", "", "", "", "", ""];
-    let currentPlayer = "o";
+    let currentPlayer = "x";
 
     gameBoxes[0].addEventListener("click", () => {
         if (currentPlayer=="x") {
             gameBoxes[0].appendChild(createEx());
             gameState[0] = "x";
             currentPlayer = "o";
-            console.log(currentPlayer);
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[0].appendChild(createOo());
             gameState[0] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -104,10 +146,12 @@ function openPlayerOne() : void {
             gameBoxes[1].appendChild(createEx());
             gameState[1] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[1].appendChild(createOo());
             gameState[1] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -116,10 +160,12 @@ function openPlayerOne() : void {
             gameBoxes[2].appendChild(createEx());
             gameState[2] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[2].appendChild(createOo());
             gameState[2] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -128,10 +174,12 @@ function openPlayerOne() : void {
             gameBoxes[3].appendChild(createEx());
             gameState[3] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[3].appendChild(createOo());
             gameState[3] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -140,10 +188,12 @@ function openPlayerOne() : void {
             gameBoxes[4].appendChild(createEx());
             gameState[4] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[4].appendChild(createOo());
             gameState[4] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -152,10 +202,12 @@ function openPlayerOne() : void {
             gameBoxes[5].appendChild(createEx());
             gameState[5] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[5].appendChild(createOo());
             gameState[5] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -164,10 +216,12 @@ function openPlayerOne() : void {
             gameBoxes[6].appendChild(createEx());
             gameState[6] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[6].appendChild(createOo());
             gameState[6] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -176,10 +230,12 @@ function openPlayerOne() : void {
             gameBoxes[7].appendChild(createEx());
             gameState[7] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[7].appendChild(createOo());
             gameState[7] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
@@ -188,10 +244,12 @@ function openPlayerOne() : void {
             gameBoxes[8].appendChild(createEx());
             gameState[8] = "x";
             currentPlayer = "o";
+            checkIfWon(gameState, "x");
         } else {
             gameBoxes[8].appendChild(createOo());
             gameState[8] = "o";
             currentPlayer = "x";
+            checkIfWon(gameState, "o");
         }
     }, {once: true});
 
