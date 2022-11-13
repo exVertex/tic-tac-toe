@@ -65,6 +65,16 @@ function setUpPlayground(): HTMLDivElement[] {
 
     return gameBoxes;
 
+function createEx(): HTMLDivElement {
+    let krizic = document.createElement("div");
+    krizic.setAttribute("id", "cross");
+    return krizic;
+}
+
+function createOo(): HTMLDivElement {
+    let kruzic = document.createElement("div");
+    kruzic.setAttribute("id", "circle");
+    return kruzic;
 }
 
 function openPlayerOne() : void {
