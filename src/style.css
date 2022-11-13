@@ -229,7 +229,7 @@ body {
   align-items: center;
   justify-content: center;
   border-bottom: var(--sec-color);
-  border-left: var(--sec-color);
+  border-right: var(--sec-color);
 }
 
 .grid {
