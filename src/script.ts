@@ -10,7 +10,7 @@ let toggleTheMenu = function(): void {
     mainContainer?.classList.toggle("in-active");
 };
 
-menuToggleSpan?.addEventListener('click', () => {
+menuToggleSpan?.addEventListener("click", () => {
     toggleTheMenu();
 });
 
