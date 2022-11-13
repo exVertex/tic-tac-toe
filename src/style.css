@@ -329,3 +329,15 @@ body {
     10% { opacity: 1; scale: 1.1; }
     11% { scale: 1;}
   }
+
+.frame {
+  background-color: var(--sec-color);
+  height: 100%;
+  aspect-ratio: 1;
+  
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
