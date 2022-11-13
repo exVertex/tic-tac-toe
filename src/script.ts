@@ -128,7 +128,7 @@ function checkIfWon(gameState: Array<string>, el: string): boolean {
     return false;
 };
 
-function openPlayerOne() : void {
+function openPlayerTwo() : void {
     toggleTheMenu();
     let win = false;
     var gameBoxes = setUpPlayground();
