@@ -21,7 +21,7 @@ function addMessageBoard(): HTMLDivElement {
     messaageBoard.textContent = "Message Board";
     messaageBoard.setAttribute("id", "message-board");
     return messaageBoard;
-}
+};
 
 function setUpPlayground(): HTMLDivElement[] {
     
@@ -74,50 +74,54 @@ function setUpPlayground(): HTMLDivElement[] {
     var gameBoxes:HTMLDivElement[]= [boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine];
 
     return gameBoxes;
-}
+};
 
 function createEx(): HTMLDivElement {
     let krizic = document.createElement("div");
     krizic.setAttribute("id", "cross");
     krizic.style.animation = "appearAnimation 0.2s";
     return krizic;
-}
+};
 
 function createOo(): HTMLDivElement {
     let kruzic = document.createElement("div");
     kruzic.setAttribute("id", "circle");
     kruzic.style.animation = "appearAnimation 0.2s";
     return kruzic;
-}
+};
+
+function removeEventListeners (gameBoxes: HTMLDivElement[]): void {
+    gameBoxes.forEach(box => { box.removeEventListener });
+};
 
 function checkIfWon(gameState: Array<string>, el: string): void {
     const messageBoard = document.getElementById("message-board");
-    const winMessage = el + " WON";
-    if(gameState[0]==el && gameState[3]==el && gameState[6]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    const winMessage = el.toUpperCase() + " WON";
+    if (gameState[0]==el && gameState[3]==el && gameState[6]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-    if(gameState[0]==el && gameState[1]==el && gameState[2]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    if (gameState[0]==el && gameState[1]==el && gameState[2]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-    if(gameState[0]==el && gameState[4]==el && gameState[8]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    if (gameState[0]==el && gameState[4]==el && gameState[8]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-    if(gameState[1]==el && gameState[4]==el && gameState[7]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    if (gameState[1]==el && gameState[4]==el && gameState[7]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-    if(gameState[2]==el && gameState[5]==el && gameState[8]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    if (gameState[2]==el && gameState[5]==el && gameState[8]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-    if(gameState[2]==el && gameState[4]==el && gameState[6]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    if (gameState[2]==el && gameState[4]==el && gameState[6]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-    if(gameState[3]==el && gameState[4]==el && gameState[5]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    if (gameState[3]==el && gameState[4]==el && gameState[5]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-    if(gameState[6]==el && gameState[7]==el && gameState[8]==el) {
-        if(messageBoard) messageBoard.textContent = winMessage;
+    if (gameState[6]==el && gameState[7]==el && gameState[8]==el) {
+        if (messageBoard) messageBoard.textContent = winMessage;
     }
-}
+};
 
 function openPlayerOne() : void {
     toggleTheMenu();
