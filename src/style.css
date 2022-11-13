@@ -157,6 +157,81 @@ body {
     justify-content: center;
 }
 
+.box-one {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: var(--sec-color);
+  border-left: var(--sec-color);
+}
+
+.box-two {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: var(--sec-color);
+}
+
+.box-three {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: var(--sec-color);
+  border-right: var(--sec-color);
+}
+
+.box-four {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: var(--sec-color);
+}
+
+.box-five {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-six {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: var(--sec-color);
+}
+
+.box-seven {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: var(--sec-color);
+  border-left: var(--sec-color);
+}
+
+.box-eight {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: var(--sec-color);
+}
+
+.box-nine {
+  border: 5px solid var(--compl-sec-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: var(--sec-color);
+  border-left: var(--sec-color);
+}
+
 .grid {
     display: grid;
     grid-template-columns: 33% 33% 33%;
