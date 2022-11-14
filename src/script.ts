@@ -31,6 +31,10 @@ function setUpPlayground(): Array<HTMLDivElement> {
     if(onePlayerText) onePlayerText.style.display = "none";
     if(twoPlayerText) twoPlayerText.style.display = "none";
 
+    //show exit button 
+    var exitButton = document.getElementById("exit-button");
+    if(exitButton) exitButton.hidden = true;
+
     // create new containers
     let gameFrame = document.createElement("div");
     gameFrame.classList.add("gameFrame");
@@ -150,6 +154,7 @@ function play(ai: boolean) : void {
 
     let exitButton = document.createElement("div");
     exitButton.classList.add("exitButton");
+    exitButton.setAttribute("id", "exit-button");
     exitButton?.addEventListener("click", () => {
         let gameFrame = document.getElementById("game-frame");
         if(gameFrame) gameFrame.innerHTML = '';
@@ -158,6 +163,7 @@ function play(ai: boolean) : void {
         if(onePlayerText) onePlayerText.style.display = "block";
         if(twoPlayerText) twoPlayerText.style.display = "block";
         toggleTheMenu();
+        exitButton.hidden = true;
     });    
 
     if (playMenu) playMenu.appendChild(exitButton);
