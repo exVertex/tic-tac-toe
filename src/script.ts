@@ -40,7 +40,7 @@ function setUpPlayground(): Array<HTMLDivElement> {
 
     // show setting elements
     if (exitButton) exitButton.hidden = false;
-    if (gameFrame) gameFrame.style.display = "inline";
+    if (gameFrame) gameFrame.style.display = "flex";
 
     // create new containers
     gameFrame?.appendChild(addMessageBoard());
