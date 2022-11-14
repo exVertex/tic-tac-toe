@@ -8,11 +8,7 @@ On the right is a menu containing two options:
   - **One Player**: user selects the option to play a game against computer.
   - **Two Players**: user is able to make choices for both X's and O's. 
 
-
-
-![preview](https://user-images.githubusercontent.com/16746958/201325024-13bb7fb4-d57a-4497-9abf-f15b1fe77c9e.PNG)
-
-
+![image](https://user-images.githubusercontent.com/16746958/201599484-3d5bc457-64f1-415e-a463-53bf081cabb9.png)
 
 #### About Tic Tac Toe:
 
