@@ -13,11 +13,11 @@ let toggleTheMenu = function(): void {
 exitButton?.addEventListener("click", () => {
     if(gameFrame) {
         gameFrame.innerHTML = '';
-        gameFrame.hidden = true;
+        gameFrame.style.display = "none";
     }
-    if (playText) playText.hidden = true;
-    if(onePlayerText) onePlayerText.hidden = true;
-    if(twoPlayerText) twoPlayerText.hidden = true;
+    if (playText) playText.style.display = "block";
+    if(onePlayerText) onePlayerText.style.display = "block"
+    if(twoPlayerText) twoPlayerText.style.display = "block"
     toggleTheMenu();
     exitButton.hidden = true;
 });    
@@ -34,13 +34,13 @@ function addMessageBoard(): HTMLDivElement {
 function setUpPlayground(): Array<HTMLDivElement> {
 
     // hide the menu elements
-    if(playText) playText.hidden = true;
-    if(onePlayerText) onePlayerText.hidden = true;
-    if(twoPlayerText) twoPlayerText.hidden = true;
+    if(playText) playText.style.display = "none";
+    if(onePlayerText) onePlayerText.style.display = "none";
+    if(twoPlayerText) twoPlayerText.style.display = "none";
 
     // show setting elements
     if (exitButton) exitButton.hidden = false;
-    if (gameFrame) gameFrame.hidden = false;
+    if (gameFrame) gameFrame.style.display = "inline";
 
     // create new containers
     gameFrame?.appendChild(addMessageBoard());
