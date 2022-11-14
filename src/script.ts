@@ -3,6 +3,8 @@ const mainContainer = document.getElementById("main-container");
 const playMenu = document.getElementById("play-menu");
 
 const exitButton = document.getElementById("exit-button");
+const gameFrame = document.getElementById("game-frame");
+
 const playText = document.getElementById("play-text");
 const onePlayerText = document.getElementById("one-player");
 const twoPlayerText = document.getElementById("two-player");
@@ -11,6 +13,18 @@ const twoPlayerText = document.getElementById("two-player");
 let toggleTheMenu = function(): void {
     mainContainer?.classList.toggle("in-active");
 };
+
+exitButton?.addEventListener("click", () => {
+    if(gameFrame) {
+        gameFrame.innerHTML = '';
+        gameFrame.hidden = true;
+    }
+    if (playText) playText.hidden = true;
+    if(onePlayerText) onePlayerText.style.display = "block";
+    if(twoPlayerText) twoPlayerText.style.display = "block";
+    toggleTheMenu();
+    exitButton.hidden = true;
+});    
 
 function addMessageBoard(): HTMLDivElement {
     const messaageBoard = document.createElement("div");
@@ -24,25 +38,20 @@ function addMessageBoard(): HTMLDivElement {
 function setUpPlayground(): Array<HTMLDivElement> {
     
     // hide the menu elements
-    if(playText) playText.style.display = "none";
-    if(onePlayerText) onePlayerText.style.display = "none";
-    if(twoPlayerText) twoPlayerText.style.display = "none";
+    if(playText) playText.hidden = true;
+    if(onePlayerText) onePlayerText.hidden = true;
+    if(twoPlayerText) twoPlayerText.hidden = true;
 
     // show setting elements
     if (exitButton) exitButton.hidden = false;
+    if (gameFrame) gameFrame.hidden = false;
 
     // create new containers
-    let gameFrame = document.createElement("div");
-    gameFrame.classList.add("gameFrame");
-    gameFrame.setAttribute("id", "game-frame");
-
-    document.getElementById("play-menu")?.appendChild(gameFrame);
-
-    gameFrame.appendChild(addMessageBoard());
+    gameFrame?.appendChild(addMessageBoard());
 
     let gameContainer = document.createElement("div");
     gameContainer.classList.add("tictactoe-container");
-    gameFrame.appendChild(gameContainer); 
+    gameFrame?.appendChild(gameContainer); 
 
     //create and add tictactoe boxes
     let boxOne = document.createElement("div");
@@ -151,17 +160,6 @@ function play(ai: boolean) : void {
 
     let win = false;
     var gameBoxes = setUpPlayground();
-
-    exitButton?.addEventListener("click", () => {
-        let gameFrame = document.getElementById("game-frame");
-        if(gameFrame) gameFrame.innerHTML = '';
-        gameFrame?.remove();
-        if(playText) playText.style.display = "block";
-        if(onePlayerText) onePlayerText.style.display = "block";
-        if(twoPlayerText) twoPlayerText.style.display = "block";
-        toggleTheMenu();
-        exitButton.hidden = true;
-    });    
 
     let gameState = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "x";
@@ -456,8 +454,4 @@ function play(ai: boolean) : void {
 
     }, {once: true});
 
-};
-
-function notImplemented(): void {
-    alert("This feature is not yet implemented. Plaese come back later.");
 };
