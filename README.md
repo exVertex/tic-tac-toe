@@ -34,6 +34,6 @@ The object is to get a row of three crosses or three circles before the opponent
 **Creator**: Petra Tanković
 
 #### List of not yet implemented features:
-- Ability to play the game in the single player mode
-- Ability to play the game in the two player mode
+- Ability to reset the game with a reset button
+- Optimised code
 
