@@ -1,10 +1,7 @@
 // Menu 
 const mainContainer = document.getElementById("main-container");
-const playMenu = document.getElementById("play-menu");
-
 const exitButton = document.getElementById("exit-button");
 const gameFrame = document.getElementById("game-frame");
-
 const playText = document.getElementById("play-text");
 const onePlayerText = document.getElementById("one-player");
 const twoPlayerText = document.getElementById("two-player");
@@ -19,8 +16,8 @@ exitButton?.addEventListener("click", () => {
         gameFrame.hidden = true;
     }
     if (playText) playText.hidden = true;
-    if(onePlayerText) onePlayerText.style.display = "block";
-    if(twoPlayerText) twoPlayerText.style.display = "block";
+    if(onePlayerText) onePlayerText.hidden = true;
+    if(twoPlayerText) twoPlayerText.hidden = true;
     toggleTheMenu();
     exitButton.hidden = true;
 });    
@@ -35,7 +32,7 @@ function addMessageBoard(): HTMLDivElement {
 };
 
 function setUpPlayground(): Array<HTMLDivElement> {
-    
+
     // hide the menu elements
     if(playText) playText.hidden = true;
     if(onePlayerText) onePlayerText.hidden = true;
