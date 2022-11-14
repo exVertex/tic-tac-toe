@@ -15,9 +15,9 @@ exitButton?.addEventListener("click", () => {
         gameFrame.innerHTML = '';
         gameFrame.style.display = "none";
     }
-    if (playText) playText.style.display = "block";
-    if(onePlayerText) onePlayerText.style.display = "block"
-    if(twoPlayerText) twoPlayerText.style.display = "block"
+    if (playText) playText.hidden = false;
+    if(onePlayerText) onePlayerText.hidden = false;
+    if(twoPlayerText) twoPlayerText.hidden = false;
     toggleTheMenu();
     exitButton.hidden = true;
 });    
@@ -34,19 +34,19 @@ function addMessageBoard(): HTMLDivElement {
 function setUpPlayground(): Array<HTMLDivElement> {
 
     // hide the menu elements
-    if(playText) playText.style.display = "none";
-    if(onePlayerText) onePlayerText.style.display = "none";
-    if(twoPlayerText) twoPlayerText.style.display = "none";
+    if(playText) playText.hidden = true;
+    if(onePlayerText) onePlayerText.hidden = true;
+    if(twoPlayerText) twoPlayerText.hidden = true;
 
     // show setting elements
     if (exitButton) exitButton.hidden = false;
     if (gameFrame) gameFrame.style.display = "flex";
 
     // create new containers
-    gameFrame?.appendChild(addMessageBoard());
-
     let gameContainer = document.createElement("div");
     gameContainer.classList.add("tictactoe-container");
+
+    gameFrame?.appendChild(addMessageBoard());
     gameFrame?.appendChild(gameContainer); 
 
     //create and add tictactoe boxes
