@@ -9,7 +9,6 @@ const playText = document.getElementById("play-text");
 const onePlayerText = document.getElementById("one-player");
 const twoPlayerText = document.getElementById("two-player");
 
-
 let toggleTheMenu = function(): void {
     mainContainer?.classList.toggle("in-active");
 };
