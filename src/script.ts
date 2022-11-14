@@ -6,6 +6,7 @@ const playText = document.getElementById("play-text");
 const onePlayerText = document.getElementById("one-player");
 const twoPlayerText = document.getElementById("two-player");
 
+
 let toggleTheMenu = function(): void {
     mainContainer?.classList.toggle("in-active");
 };
@@ -83,19 +84,12 @@ function setUpPlayground(): Array<HTMLDivElement> {
     return gameBoxes;
 };
 
-function createEx(): HTMLDivElement {
-    let krizic = document.createElement("div");
-    krizic.setAttribute("id", "cross");
-    krizic.style.animation = "appearAnimation 0.2s";
-    return krizic;
-};
-
-function createOo(): HTMLDivElement {
-    let kruzic = document.createElement("div");
-    kruzic.setAttribute("id", "circle");
-    kruzic.style.animation = "appearAnimation 0.2s";
-    return kruzic;
-};
+function createPlayShape(idAttribute: string): HTMLDivElement {
+    let shape = document.createElement("div");
+    shape.setAttribute("id", idAttribute);
+    shape.style.animation = "appearAnimation 0.2s";
+    return shape;
+}
 
 function checkIfWon(gameState: Array<string>, el: string): boolean {
     const messageBoard = document.getElementById("message-board");
@@ -163,27 +157,27 @@ function play(ai: boolean) : void {
     gameBoxes[0].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
-            gameBoxes[0].appendChild(createEx());
+            gameBoxes[0].appendChild(createPlayShape("cross"));
             gameState[0] = "x";
             currentPlayer = "o";
             win = checkIfWon(gameState, "x");
             if (ai && !win) {
                 await new Promise(f => setTimeout(f, 500));
                 var field = getEmptyField(gameState);
-                gameBoxes[field].appendChild(createOo());
+                gameBoxes[field].appendChild(createPlayShape("circle"));
                 gameState[field] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
             }
         } else {
-            gameBoxes[0].appendChild(createOo());
+            gameBoxes[0].appendChild(createPlayShape("circle"));
             gameState[0] = "o";
             currentPlayer = "x";
             win = checkIfWon(gameState, "o");
             if (ai && !win) {
                 await new Promise(f => setTimeout(f, 500));
                 var field = getEmptyField(gameState);
-                gameBoxes[field].appendChild(createEx());
+                gameBoxes[field].appendChild(createPlayShape("cross"));
                 gameState[field] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
@@ -195,27 +189,27 @@ function play(ai: boolean) : void {
     gameBoxes[1].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
-                gameBoxes[1].appendChild(createEx());
+                gameBoxes[1].appendChild(createPlayShape("cross"));
                 gameState[1] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[1].appendChild(createOo());
+                gameBoxes[1].appendChild(createPlayShape("circle"));
                 gameState[1] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
@@ -227,27 +221,27 @@ function play(ai: boolean) : void {
     gameBoxes[2].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
-                gameBoxes[2].appendChild(createEx());
+                gameBoxes[2].appendChild(createPlayShape("cross"));
                 gameState[2] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[2].appendChild(createOo());
+                gameBoxes[2].appendChild(createPlayShape("circle"));
                 gameState[2] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
@@ -259,27 +253,27 @@ function play(ai: boolean) : void {
     gameBoxes[3].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
-                gameBoxes[3].appendChild(createEx());
+                gameBoxes[3].appendChild(createPlayShape("cross"));
                 gameState[3] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[3].appendChild(createOo());
+                gameBoxes[3].appendChild(createPlayShape("circle"));
                 gameState[3] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
@@ -291,27 +285,27 @@ function play(ai: boolean) : void {
     gameBoxes[4].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
-                gameBoxes[4].appendChild(createEx());
+                gameBoxes[4].appendChild(createPlayShape("cross"));
                 gameState[4] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[4].appendChild(createOo());
+                gameBoxes[4].appendChild(createPlayShape("circle"));
                 gameState[4] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
@@ -323,27 +317,27 @@ function play(ai: boolean) : void {
     gameBoxes[5].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
-                gameBoxes[5].appendChild(createEx());
+                gameBoxes[5].appendChild(createPlayShape("cross"));
                 gameState[5] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "xo";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[5].appendChild(createOo());
+                gameBoxes[5].appendChild(createPlayShape("circle"));
                 gameState[5] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
@@ -356,27 +350,27 @@ function play(ai: boolean) : void {
     gameBoxes[6].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
-                gameBoxes[6].appendChild(createEx());
+                gameBoxes[6].appendChild(createPlayShape("cross"));
                 gameState[6] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[6].appendChild(createOo());
+                gameBoxes[6].appendChild(createPlayShape("circle"));
                 gameState[6] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
@@ -388,27 +382,27 @@ function play(ai: boolean) : void {
     gameBoxes[7].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
-                gameBoxes[7].appendChild(createEx());
+                gameBoxes[7].appendChild(createPlayShape("cross"));
                 gameState[7] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[7].appendChild(createOo());
+                gameBoxes[7].appendChild(createPlayShape("circle"));
                 gameState[7] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
@@ -420,27 +414,27 @@ function play(ai: boolean) : void {
     gameBoxes[8].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
-                gameBoxes[8].appendChild(createEx());
+                gameBoxes[8].appendChild(createPlayShape("cross"));
                 gameState[8] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createOo());
+                    gameBoxes[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
-                gameBoxes[8].appendChild(createOo());
+                gameBoxes[8].appendChild(createPlayShape("circle"));
                 gameState[8] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
-                    gameBoxes[field].appendChild(createEx());
+                    gameBoxes[field].appendChild(createPlayShape("cross"));
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
