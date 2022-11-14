@@ -1,6 +1,7 @@
 // Menu 
 const menuToggleSpan = document.getElementById("toggle-menu");
 const mainContainer = document.getElementById("main-container");
+const playMenu = document.getElementById("play-menu");
 
 const playText = document.getElementById("play-text");
 const onePlayerText = document.getElementById("one-player");
@@ -13,6 +14,10 @@ let toggleTheMenu = function(): void {
 menuToggleSpan?.addEventListener("click", () => {
     toggleTheMenu();
 });
+
+function resetTheMenu(): void {
+
+}
 
 function addMessageBoard(): HTMLDivElement {
     const messaageBoard = document.createElement("div");
@@ -33,6 +38,7 @@ function setUpPlayground(): Array<HTMLDivElement> {
     // create new containers
     let gameFrame = document.createElement("div");
     gameFrame.classList.add("gameFrame");
+    gameFrame.setAttribute("id", "game-frame");
 
     document.getElementById("play-menu")?.appendChild(gameFrame);
 
@@ -133,8 +139,25 @@ function openPlayerTwo() : void {
     let win = false;
     var gameBoxes = setUpPlayground();
 
+    let exitButton = document.createElement("div");
+    exitButton.classList.add("exitButton");
+    exitButton?.addEventListener("click", () => {
+        let gameFrame = document.getElementById("game-frame");
+        if(gameFrame) gameFrame.innerHTML = '';
+        gameFrame?.remove();
+        if(playText) playText.style.display = "block";
+        if(onePlayerText) onePlayerText.style.display = "block";
+        if(twoPlayerText) twoPlayerText.style.display = "block";
+        toggleTheMenu();
+    });    
+
+
+    if (playMenu) playMenu.appendChild(exitButton);
+
     let gameState = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "x";
+
+
 
     gameBoxes[0].addEventListener("click", () => {
         if (!win) {

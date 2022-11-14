@@ -347,3 +347,29 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.exitButton {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.exitButton:hover {
+  opacity: 1;
+}
+.exitButton:before, .exitButton:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.exitButton:before {
+  transform: rotate(45deg);
+}
+.exitButton:after {
+  transform: rotate(-45deg);
+}
