@@ -15,10 +15,6 @@ menuToggleSpan?.addEventListener("click", () => {
     toggleTheMenu();
 });
 
-function resetTheMenu(): void {
-
-}
-
 function addMessageBoard(): HTMLDivElement {
     const messaageBoard = document.createElement("div");
     messaageBoard.classList.add("light-font");
@@ -134,7 +130,20 @@ function checkIfWon(gameState: Array<string>, el: string): boolean {
     return false;
 };
 
-function openPlayerTwo() : void {
+function getRandomNumber(): number {
+    return Math.floor(Math.random() * (8 + 1));
+}
+
+function getEmptyField(gameState: string[]): number {
+    var numb = getRandomNumber();
+    if (gameState[numb] != "") {
+        return getEmptyField(gameState);
+    } else {
+        return numb;
+    }
+}
+
+function play(ai: boolean) : void {
     toggleTheMenu();
     let win = false;
     var gameBoxes = setUpPlayground();
@@ -151,156 +160,296 @@ function openPlayerTwo() : void {
         toggleTheMenu();
     });    
 
-
     if (playMenu) playMenu.appendChild(exitButton);
 
     let gameState = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "x";
 
-
-
-    gameBoxes[0].addEventListener("click", () => {
+    gameBoxes[0].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
             gameBoxes[0].appendChild(createEx());
             gameState[0] = "x";
             currentPlayer = "o";
-            
             win = checkIfWon(gameState, "x");
+            if (ai && !win) {
+                await new Promise(f => setTimeout(f, 500));
+                var field = getEmptyField(gameState);
+                gameBoxes[field].appendChild(createOo());
+                gameState[field] = "x";
+                currentPlayer = "o";
+                win = checkIfWon(gameState, "o");
+            }
         } else {
             gameBoxes[0].appendChild(createOo());
             gameState[0] = "o";
             currentPlayer = "x";
             win = checkIfWon(gameState, "o");
+            if (ai && !win) {
+                await new Promise(f => setTimeout(f, 500));
+                var field = getEmptyField(gameState);
+                gameBoxes[field].appendChild(createEx());
+                gameState[field] = "o";
+                currentPlayer = "x";
+                win = checkIfWon(gameState, "x");
+            }
         }
     }
     }, {once: true});
 
-    gameBoxes[1].addEventListener("click", () => {
+    gameBoxes[1].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
                 gameBoxes[1].appendChild(createEx());
                 gameState[1] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[1].appendChild(createOo());
                 gameState[1] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
     }, {once: true});
 
-    gameBoxes[2].addEventListener("click", () => {
+    gameBoxes[2].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
                 gameBoxes[2].appendChild(createEx());
                 gameState[2] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[2].appendChild(createOo());
                 gameState[2] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
     }, {once: true});
 
-    gameBoxes[3].addEventListener("click", () => {
+    gameBoxes[3].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
                 gameBoxes[3].appendChild(createEx());
                 gameState[3] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[3].appendChild(createOo());
                 gameState[3] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
     }, {once: true});
 
-    gameBoxes[4].addEventListener("click", () => {
+    gameBoxes[4].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
                 gameBoxes[4].appendChild(createEx());
                 gameState[4] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[4].appendChild(createOo());
                 gameState[4] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
     }, {once: true});
 
-    gameBoxes[5].addEventListener("click", () => {
+    gameBoxes[5].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
                 gameBoxes[5].appendChild(createEx());
                 gameState[5] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[5].appendChild(createOo());
                 gameState[5] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
 
     }, {once: true});
 
-    gameBoxes[6].addEventListener("click", () => {
+    gameBoxes[6].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
                 gameBoxes[6].appendChild(createEx());
                 gameState[6] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[6].appendChild(createOo());
                 gameState[6] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
     }, {once: true});
 
-    gameBoxes[7].addEventListener("click", () => {
+    gameBoxes[7].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
                 gameBoxes[7].appendChild(createEx());
                 gameState[7] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[7].appendChild(createOo());
                 gameState[7] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
     }, {once: true});
 
-    gameBoxes[8].addEventListener("click", () => {
+    gameBoxes[8].addEventListener("click", async () => {
         if(!win) {
             if (currentPlayer=="x") {
                 gameBoxes[8].appendChild(createEx());
                 gameState[8] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createOo());
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 gameBoxes[8].appendChild(createOo());
                 gameState[8] = "o";
                 currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    gameBoxes[field].appendChild(createEx());
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "x");
+                }
             }
         }
 
