@@ -28,6 +28,9 @@ function setUpPlayground(): Array<HTMLDivElement> {
     if(onePlayerText) onePlayerText.style.display = "none";
     if(twoPlayerText) twoPlayerText.style.display = "none";
 
+    // show setting elements
+    if (exitButton) exitButton.hidden = false;
+
     // create new containers
     let gameFrame = document.createElement("div");
     gameFrame.classList.add("gameFrame");
@@ -174,8 +177,8 @@ function play(ai: boolean) : void {
                 await new Promise(f => setTimeout(f, 500));
                 var field = getEmptyField(gameState);
                 gameBoxes[field].appendChild(createOo());
-                gameState[field] = "x";
-                currentPlayer = "o";
+                gameState[field] = "o";
+                currentPlayer = "x";
                 win = checkIfWon(gameState, "o");
             }
         } else {
@@ -187,8 +190,8 @@ function play(ai: boolean) : void {
                 await new Promise(f => setTimeout(f, 500));
                 var field = getEmptyField(gameState);
                 gameBoxes[field].appendChild(createEx());
-                gameState[field] = "o";
-                currentPlayer = "x";
+                gameState[field] = "x";
+                currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
             }
         }
@@ -206,8 +209,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -219,8 +222,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
@@ -238,8 +241,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -251,8 +254,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
@@ -270,8 +273,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -283,8 +286,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
@@ -302,8 +305,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -315,8 +318,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
@@ -334,8 +337,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "xo";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -347,8 +350,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
@@ -367,8 +370,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -380,8 +383,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
@@ -399,8 +402,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -412,8 +415,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
@@ -431,8 +434,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createOo());
-                    gameState[field] = "x";
-                    currentPlayer = "o";
+                    gameState[field] = "o";
+                    currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
                 }
             } else {
@@ -444,8 +447,8 @@ function play(ai: boolean) : void {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createEx());
-                    gameState[field] = "o";
-                    currentPlayer = "x";
+                    gameState[field] = "x";
+                    currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
                 }
             }
