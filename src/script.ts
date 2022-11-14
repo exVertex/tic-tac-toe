@@ -6,7 +6,6 @@ const playText = document.getElementById("play-text");
 const onePlayerText = document.getElementById("one-player");
 const twoPlayerText = document.getElementById("two-player");
 
-
 let toggleTheMenu = function(): void {
     mainContainer?.classList.toggle("in-active");
 };
@@ -143,16 +142,15 @@ function getEmptyField(gameState: string[]): number {
 }
 
 function play(ai: boolean) : void {
+
+    // Initial set-up
     toggleTheMenu();
-    
-    //show exit button 
     if(exitButton) exitButton.hidden = true;
 
-    let win = false;
     var gameBoxes = setUpPlayground();
-
     let gameState = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "x";
+    let win = false;
 
     gameBoxes[0].addEventListener("click", async () => {
         if (!win) {
