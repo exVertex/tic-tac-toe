@@ -1,10 +1,12 @@
+import { Playground } from "./playground";
+
 // Menu 
-const mainContainer = document.getElementById("main-container");
-const exitButton = document.getElementById("exit-button");
-const gameFrame = document.getElementById("game-frame");
-const playText = document.getElementById("play-text");
-const onePlayerText = document.getElementById("one-player");
-const twoPlayerText = document.getElementById("two-player");
+const mainContainer = document.getElementById("main-container")!;
+const exitButton = document.getElementById("exit-button")!;
+const gameFrame = document.getElementById("game-frame")!;
+const playText = document.getElementById("play-text")!;
+const onePlayerText = document.getElementById("one-player")!;
+const twoPlayerText = document.getElementById("two-player")!;
 
 let toggleTheMenu = function(): void {
     mainContainer?.classList.toggle("in-active");
@@ -20,76 +22,38 @@ exitButton?.addEventListener("click", () => {
     if(twoPlayerText) twoPlayerText.hidden = false;
     toggleTheMenu();
     exitButton.hidden = true;
-});    
+});
 
-function addMessageBoard(): HTMLDivElement {
-    const messaageBoard = document.createElement("div");
-    messaageBoard.classList.add("light-font");
-    messaageBoard.classList.add("heading");
-    messaageBoard.textContent = " ";
-    messaageBoard.setAttribute("id", "message-board");
-    return messaageBoard;
+function updateText(element: HTMLDivElement, text: string) {
+    element.style.animation = "appearAnimation 0.2s";
+    element.textContent = text.toUpperCase();
 };
 
-function setUpPlayground(): Array<HTMLDivElement> {
-
+function setUpPlayground() {
     // hide the menu elements
-    if(playText) playText.hidden = true;
-    if(onePlayerText) onePlayerText.hidden = true;
-    if(twoPlayerText) twoPlayerText.hidden = true;
+    playText.hidden = true;
+    onePlayerText.hidden = true;
+    twoPlayerText.hidden = true;
 
     // show setting elements
-    if (exitButton) exitButton.hidden = false;
-    if (gameFrame) gameFrame.style.display = "flex";
+    exitButton.hidden = false;
+    gameFrame.style.display = "flex";
 
-    // create new containers
-    let gameContainer = document.createElement("div");
-    gameContainer.classList.add("tictactoe-container");
+    let playground = new Playground(gameFrame);
 
-    gameFrame?.appendChild(addMessageBoard());
-    gameFrame?.appendChild(gameContainer); 
-
-    //create and add tictactoe boxes
-    let boxOne = document.createElement("div");
-    boxOne.classList.add("box-one");
-    gameContainer.appendChild(boxOne);
-    let boxTwo = document.createElement("div");
-    boxTwo.classList.add("box-two");
-    gameContainer.appendChild(boxTwo);
-    let boxThree = document.createElement("div");
-    boxThree.classList.add("box-three");
-    gameContainer.appendChild(boxThree);
-    let boxFour = document.createElement("div");
-    boxFour.classList.add("box-four");
-    gameContainer.appendChild(boxFour);
-    let boxFive = document.createElement("div");
-    boxFive.classList.add("box-five");
-    gameContainer.appendChild(boxFive);
-    let boxSix = document.createElement("div");
-    boxSix.classList.add("box-six");
-    gameContainer.appendChild(boxSix);
-    let boxSeven = document.createElement("div");
-    boxSeven.classList.add("box-seven");
-    gameContainer.appendChild(boxSeven);
-    let boxEight = document.createElement("div");
-    boxEight.classList.add("box-eight");
-    gameContainer.appendChild(boxEight);
-    let boxNine = document.createElement("div");
-    boxNine.classList.add("box-nine");
-    gameContainer.appendChild(boxNine);
-
-    var gameBoxes: Array<HTMLDivElement> = [boxOne, boxTwo, boxThree, boxFour, boxFive, boxSix, boxSeven, boxEight, boxNine];
-
-    return gameBoxes;
+    console.log("done");
 };
 
 function createPlayShape(idAttribute: string): HTMLDivElement {
+
     let shape = document.createElement("div");
+
     shape.setAttribute("id", idAttribute);
     shape.style.animation = "appearAnimation 0.2s";
+
     return shape;
 }
-
+ /*
 function checkIfWon(gameState: Array<string>, el: string): boolean {
     const messageBoard = document.getElementById("message-board");
     const winMessage = el.toUpperCase() + " WON";
@@ -102,7 +66,7 @@ function checkIfWon(gameState: Array<string>, el: string): boolean {
         return true;
     }
     if (gameState[0]==el && gameState[4]==el && gameState[8]==el) {
-        if (messageBoard) messageBoard.textContent = winMessage;
+        if (messageBoard) updateText(messageBoard, "You won!");
         return true;
     }
     if (gameState[1]==el && gameState[4]==el && gameState[7]==el) {
@@ -140,18 +104,22 @@ function getEmptyField(gameState: string[]): number {
         return numb;
     }
 }
-
+*/ 
 function play(ai: boolean) : void {
 
+    console.log("here");
     // Initial set-up
     toggleTheMenu();
     if(exitButton) exitButton.hidden = true;
 
-    var gameBoxes = setUpPlayground();
+    setUpPlayground();
+
+    let gameBoxes = setUpPlayground();
     let gameState = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "x";
     let win = false;
-
+};
+    /*
     gameBoxes[0].addEventListener("click", async () => {
         if (!win) {
             if (currentPlayer=="x") {
@@ -191,7 +159,7 @@ function play(ai: boolean) : void {
                 gameState[1] = "x";
                 currentPlayer = "o";
                 win = checkIfWon(gameState, "x");
-                if (ai && !win) {
+                if (ai && !win) {   
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     gameBoxes[field].appendChild(createPlayShape("circle"));
@@ -442,4 +410,4 @@ function play(ai: boolean) : void {
 
     }, {once: true});
 
-};
+}; */
