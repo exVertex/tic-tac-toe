@@ -6,7 +6,7 @@ const playText = document.getElementById("play-text")!;
 const onePlayerText = document.getElementById("one-player")!;
 const twoPlayerText = document.getElementById("two-player")!;
 
-let toggleTheMenu = function(): void {
+let toggleTheMenu = function (): void {
     mainContainer?.classList.toggle("in-active");
 };
 
@@ -14,7 +14,7 @@ exitButton?.addEventListener("click", () => {
     // clear gameFrame
     gameFrame.innerHTML = '';
     gameFrame.style.display = "none";
-    
+
     // hide menu elements
     playText.hidden = false;
     onePlayerText.hidden = false;
@@ -24,7 +24,7 @@ exitButton?.addEventListener("click", () => {
     toggleTheMenu();
 });
 
-function updateText(element: HTMLDivElement, text: string) {
+function updateText(element: HTMLElement, text: string) {
     element.style.animation = "appearAnimation 0.2s";
     element.textContent = text.toUpperCase();
 };
@@ -54,35 +54,35 @@ function createPlayShape(idAttribute: string): HTMLDivElement {
 function checkIfWon(gameState: Array<string>, el: string): boolean {
     const messageBoard = document.getElementById("message-board");
     const winMessage = el.toUpperCase() + " WON";
-    if (gameState[0]==el && gameState[3]==el && gameState[6]==el) {
+    if (gameState[0] == el && gameState[3] == el && gameState[6] == el) {
         if (messageBoard) messageBoard.textContent = winMessage;
         return true;
     }
-    if (gameState[0]==el && gameState[1]==el && gameState[2]==el) {
+    if (gameState[0] == el && gameState[1] == el && gameState[2] == el) {
         if (messageBoard) messageBoard.textContent = winMessage;
         return true;
     }
-    if (gameState[0]==el && gameState[4]==el && gameState[8]==el) {
+    if (gameState[0] == el && gameState[4] == el && gameState[8] == el) {
         if (messageBoard) updateText(messageBoard, "You won!");
         return true;
     }
-    if (gameState[1]==el && gameState[4]==el && gameState[7]==el) {
+    if (gameState[1] == el && gameState[4] == el && gameState[7] == el) {
         if (messageBoard) messageBoard.textContent = winMessage;
         return true;
     }
-    if (gameState[2]==el && gameState[5]==el && gameState[8]==el) {
+    if (gameState[2] == el && gameState[5] == el && gameState[8] == el) {
         if (messageBoard) messageBoard.textContent = winMessage;
         return true;
     }
-    if (gameState[2]==el && gameState[4]==el && gameState[6]==el) {
+    if (gameState[2] == el && gameState[4] == el && gameState[6] == el) {
         if (messageBoard) messageBoard.textContent = winMessage;
         return true;
     }
-    if (gameState[3]==el && gameState[4]==el && gameState[5]==el) {
+    if (gameState[3] == el && gameState[4] == el && gameState[5] == el) {
         if (messageBoard) messageBoard.textContent = winMessage;
         return true;
     }
-    if (gameState[6]==el && gameState[7]==el && gameState[8]==el) {
+    if (gameState[6] == el && gameState[7] == el && gameState[8] == el) {
         if (messageBoard) messageBoard.textContent = winMessage;
         return true;
     }
@@ -99,72 +99,39 @@ function getEmptyField(gameState: string[]): number {
     return (gameState[numb] != "") ? getEmptyField(gameState) : numb;
 }
 
-function play(ai: boolean) : void {
+function play(ai: boolean): void {
 
     // Initial set-up
     toggleTheMenu();
-    if(exitButton) exitButton.hidden = true;
+    if (exitButton) exitButton.hidden = true;
 
     let pg = setUpPlayground();
     let gameState = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "x";
     let win = false;
 
-    
+
     pg.gameFields[0].addEventListener("click", async () => {
         if (!win) {
-            if (currentPlayer=="x") {
-            pg.gameFields[0].appendChild(createPlayShape("cross"));
-            gameState[0] = "x";
-            currentPlayer = "o";
-        
-            win = checkIfWon(gameState, "x");
-            if (ai && !win) {
-                await new Promise(f => setTimeout(f, 500));
-                var field = getEmptyField(gameState);
-                pg.gameFields[field].appendChild(createPlayShape("circle"));
-                gameState[field] = "o";
-                currentPlayer = "x";
-                win = checkIfWon(gameState, "o"); 
-            }
-        } else {
-            pg.gameFields[0].appendChild(createPlayShape("circle"));
-            gameState[0] = "o";
-            currentPlayer = "x";
-            
-            win = checkIfWon(gameState, "o");
-            if (ai && !win) {
-                await new Promise(f => setTimeout(f, 500));
-                var field = getEmptyField(gameState);
-                pg.gameFields[field].appendChild(createPlayShape("cross"));
-                gameState[field] = "x";
+            if (currentPlayer == "x") {
+                pg.gameFields[0].appendChild(createPlayShape("cross"));
+                gameState[0] = "x";
                 currentPlayer = "o";
-                win = checkIfWon(gameState, "x");
-            }
-        }
-    }, {once: true});
 
-    pg.gameFields[1].addEventListener("click", async () => {
-        if (!win) {
-            if (currentPlayer=="x") {
-                pg.gameFields[1].appendChild(createPlayShape("cross"));
-                gameState[1] = "x";
-                currentPlayer = "o";
-                
                 win = checkIfWon(gameState, "x");
-                if (ai && !win) {   
+                if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
                     var field = getEmptyField(gameState);
                     pg.gameFields[field].appendChild(createPlayShape("circle"));
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
-                } 
+                }
             } else {
-                pg.gameFields[1].appendChild(createPlayShape("circle"));
-                gameState[1] = "o";
+                pg.gameFields[0].appendChild(createPlayShape("circle"));
+                gameState[0] = "o";
                 currentPlayer = "x";
-                
+
                 win = checkIfWon(gameState, "o");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
@@ -173,18 +140,18 @@ function play(ai: boolean) : void {
                     gameState[field] = "x";
                     currentPlayer = "o";
                     win = checkIfWon(gameState, "x");
-                } 
+                }
             }
         }
-    }, {once: true});
+    }, { once: true });
 
-    pg.gameFields[2].addEventListener("click", async () => {
+    pg.gameFields[1].addEventListener("click", async () => {
         if (!win) {
-            if (currentPlayer=="x") {
-                pg.gameFields[2].appendChild(createPlayShape("cross"));
-                gameState[2] = "x";
+            if (currentPlayer == "x") {
+                pg.gameFields[1].appendChild(createPlayShape("cross"));
+                gameState[1] = "x";
                 currentPlayer = "o";
-                
+
                 win = checkIfWon(gameState, "x");
                 if (ai && !win) {
                     await new Promise(f => setTimeout(f, 500));
@@ -193,7 +160,41 @@ function play(ai: boolean) : void {
                     gameState[field] = "o";
                     currentPlayer = "x";
                     win = checkIfWon(gameState, "o");
-                } 
+                }
+            } else {
+                pg.gameFields[1].appendChild(createPlayShape("circle"));
+                gameState[1] = "o";
+                currentPlayer = "x";
+
+                win = checkIfWon(gameState, "o");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    pg.gameFields[field].appendChild(createPlayShape("cross"));
+                    gameState[field] = "x";
+                    currentPlayer = "o";
+                    win = checkIfWon(gameState, "x");
+                }
+            }
+        }
+    }, { once: true });
+
+    pg.gameFields[2].addEventListener("click", async () => {
+        if (!win) {
+            if (currentPlayer == "x") {
+                pg.gameFields[2].appendChild(createPlayShape("cross"));
+                gameState[2] = "x";
+                currentPlayer = "o";
+
+                win = checkIfWon(gameState, "x");
+                if (ai && !win) {
+                    await new Promise(f => setTimeout(f, 500));
+                    var field = getEmptyField(gameState);
+                    pg.gameFields[field].appendChild(createPlayShape("circle"));
+                    gameState[field] = "o";
+                    currentPlayer = "x";
+                    win = checkIfWon(gameState, "o");
+                }
             } else {
                 pg.gameFields[2].appendChild(createPlayShape("circle"));
                 gameState[2] = "o";
@@ -209,11 +210,11 @@ function play(ai: boolean) : void {
                 }
             }
         }
-    }, {once: true});
+    }, { once: true });
 
     pg.gameFields[3].addEventListener("click", async () => {
         if (!win) {
-            if (currentPlayer=="x") {
+            if (currentPlayer == "x") {
                 pg.gameFields[3].appendChild(createPlayShape("cross"));
                 gameState[3] = "x";
                 currentPlayer = "o";
@@ -241,11 +242,11 @@ function play(ai: boolean) : void {
                 }
             }
         }
-    }, {once: true});
+    }, { once: true });
 
     pg.gameFields[4].addEventListener("click", async () => {
         if (!win) {
-            if (currentPlayer=="x") {
+            if (currentPlayer == "x") {
                 pg.gameFields[4].appendChild(createPlayShape("cross"));
                 gameState[4] = "x";
                 currentPlayer = "o";
@@ -273,11 +274,11 @@ function play(ai: boolean) : void {
                 }
             }
         }
-    }, {once: true});
+    }, { once: true });
 
     pg.gameFields[5].addEventListener("click", async () => {
-        if(!win) {
-            if (currentPlayer=="x") {
+        if (!win) {
+            if (currentPlayer == "x") {
                 pg.gameFields[5].appendChild(createPlayShape("cross"));
                 gameState[5] = "x";
                 currentPlayer = "o";
@@ -306,11 +307,11 @@ function play(ai: boolean) : void {
             }
         }
 
-    }, {once: true});
+    }, { once: true });
 
     pg.gameFields[6].addEventListener("click", async () => {
-        if(!win) {
-            if (currentPlayer=="x") {
+        if (!win) {
+            if (currentPlayer == "x") {
                 pg.gameFields[6].appendChild(createPlayShape("cross"));
                 gameState[6] = "x";
                 currentPlayer = "o";
@@ -338,11 +339,11 @@ function play(ai: boolean) : void {
                 }
             }
         }
-    }, {once: true});
+    }, { once: true });
 
     pg.gameFields[7].addEventListener("click", async () => {
-        if(!win) {
-            if (currentPlayer=="x") {
+        if (!win) {
+            if (currentPlayer == "x") {
                 pg.gameFields[7].appendChild(createPlayShape("cross"));
                 gameState[7] = "x";
                 currentPlayer = "o";
@@ -370,11 +371,11 @@ function play(ai: boolean) : void {
                 }
             }
         }
-    }, {once: true});
+    }, { once: true });
 
     pg.gameFields[8].addEventListener("click", async () => {
-        if(!win) {
-            if (currentPlayer=="x") {
+        if (!win) {
+            if (currentPlayer == "x") {
                 pg.gameFields[8].appendChild(createPlayShape("cross"));
                 gameState[8] = "x";
                 currentPlayer = "o";
@@ -403,6 +404,6 @@ function play(ai: boolean) : void {
             }
         }
 
-    }, {once: true});
+    }, { once: true });
 
-    };
+};
