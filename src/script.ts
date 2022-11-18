@@ -1,5 +1,3 @@
-import { Playground } from "./playground";
-
 // Menu 
 const mainContainer = document.getElementById("main-container")!;
 const exitButton = document.getElementById("exit-button")!;
@@ -13,15 +11,17 @@ let toggleTheMenu = function(): void {
 };
 
 exitButton?.addEventListener("click", () => {
-    if(gameFrame) {
-        gameFrame.innerHTML = '';
-        gameFrame.style.display = "none";
-    }
-    if (playText) playText.hidden = false;
-    if(onePlayerText) onePlayerText.hidden = false;
-    if(twoPlayerText) twoPlayerText.hidden = false;
-    toggleTheMenu();
+    // clear gameFrame
+    gameFrame.innerHTML = '';
+    gameFrame.style.display = "none";
+    
+    // hide menu elements
+    playText.hidden = false;
+    onePlayerText.hidden = false;
+    twoPlayerText.hidden = false;
     exitButton.hidden = true;
+
+    toggleTheMenu();
 });
 
 function updateText(element: HTMLDivElement, text: string) {
@@ -29,7 +29,7 @@ function updateText(element: HTMLDivElement, text: string) {
     element.textContent = text.toUpperCase();
 };
 
-function setUpPlayground() {
+function setUpPlayground(): Playground {
     // hide the menu elements
     playText.hidden = true;
     onePlayerText.hidden = true;
@@ -39,15 +39,12 @@ function setUpPlayground() {
     exitButton.hidden = false;
     gameFrame.style.display = "flex";
 
-    let playground = new Playground(gameFrame);
+    return new Playground(gameFrame);
+}
 
-    console.log("done");
-};
 
 function createPlayShape(idAttribute: string): HTMLDivElement {
-
     let shape = document.createElement("div");
-
     shape.setAttribute("id", idAttribute);
     shape.style.animation = "appearAnimation 0.2s";
 
@@ -107,12 +104,9 @@ function getEmptyField(gameState: string[]): number {
 */ 
 function play(ai: boolean) : void {
 
-    console.log("here");
     // Initial set-up
     toggleTheMenu();
     if(exitButton) exitButton.hidden = true;
-
-    setUpPlayground();
 
     let gameBoxes = setUpPlayground();
     let gameState = ["", "", "", "", "", "", "", "", ""];

@@ -1,4 +1,4 @@
-export class Playground {
+class Playground {
 
     gameContainer: HTMLDivElement;
     messageBoard: HTMLDivElement;
