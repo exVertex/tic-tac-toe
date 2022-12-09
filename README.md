@@ -27,8 +27,6 @@ The object is to get a row of three crosses or three circles before the opponent
 
 ## About development:
 
-**Creator**: Petra Tanković
-
 #### List of not yet implemented features:
 - Ability to restart the game with a reset button
 - Ability to count score
